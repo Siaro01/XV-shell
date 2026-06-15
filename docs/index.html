@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XV shell | Terminal Tools</title>
+    <title>XV shell</title>
     <style>
         /* Variables de color */
         :root {
@@ -56,6 +56,9 @@
             background: #222;
             padding: 0.2rem 0.4rem;
             border-radius: 4px;
+            display: block;
+            margin: 1rem 0;
+            word-break: break-all;
         }
 
         .light-mode code {
@@ -65,6 +68,11 @@
         h1, h2 { text-transform: uppercase; }
 
         section { margin-bottom: 3rem; }
+        
+        .copy-btn {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
     </style>
 </head>
 <body>
@@ -82,23 +90,29 @@
 
         <section>
             <h2>Guía de Instalación</h2>
-            <p>Sigue estos pasos para tener XV shell funcionando en tu sistema:</p>
-            <ol>
-                <li>Abre tu terminal favorita.</li>
-                <li>Ejecuta el siguiente comando para descargar el paquete: <code>curl -sL https://xv-shell.com/install | bash</code></li>
-                <li>Espera a que el proceso finalice automáticamente.</li>
-                <li>Reinicia tu terminal o ejecuta <code>source ~/.bashrc</code></li>
-            </ol>
+            
+            <p>Abre PowerShell como Administrador y ejecuta:</p>
+            <code id="win-code">powershell -Command "Invoke-WebRequest 'https://raw.githubusercontent.com/Siaro01/XV-shell/main/XVshell_installer.exe' -OutFile 'installer.exe'; Start-Process 'installer.exe' -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES' -Wait; Remove-Item 'installer.exe'"</code>
+            <button class="copy-btn" onclick="copyToClipboard()">Copiar comando de Windows</button>
         </section>
     </main>
 
     <script>
+        // Toggle Modo claro/oscuro
         const btn = document.getElementById('theme-toggle');
         const body = document.body;
 
         btn.addEventListener('click', () => {
             body.classList.toggle('light-mode');
         });
+
+        // Copiar comando al portapapeles
+        function copyToClipboard() {
+            const codeText = document.getElementById('win-code').innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                alert("Comando copiado al portapapeles");
+            });
+        }
     </script>
 </body>
 </html>
