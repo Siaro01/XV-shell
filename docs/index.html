@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XV shell | Terminal Tools</title>
+    <style>
+        /* Variables de color */
+        :root {
+            --bg-color: #000000;
+            --text-color: #00FF00;
+            --accent-color: #00FF00;
+        }
+
+        .light-mode {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-color: #000000;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            transition: all 0.3s ease;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        button {
+            background: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        code {
+            background: #222;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        .light-mode code {
+            background: #eee;
+        }
+
+        h1, h2 { text-transform: uppercase; }
+
+        section { margin-bottom: 3rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>XV shell</h1>
+        <button id="theme-toggle">Cambiar modo</button>
+    </header>
+
+    <main>
+        <section>
+            <h2>Bienvenido</h2>
+            <p>XV shell es la herramienta definitiva diseñada para la comunidad hispanohablante. Optimiza tu flujo de trabajo y toma el control de tu entorno con comandos potentes y una sintaxis sencilla.</p>
+        </section>
+
+        <section>
+            <h2>Guía de Instalación</h2>
+            <p>Sigue estos pasos para tener XV shell funcionando en tu sistema:</p>
+            <ol>
+                <li>Abre tu terminal favorita.</li>
+                <li>Ejecuta el siguiente comando para descargar el paquete: <code>curl -sL https://xv-shell.com/install | bash</code></li>
+                <li>Espera a que el proceso finalice automáticamente.</li>
+                <li>Reinicia tu terminal o ejecuta <code>source ~/.bashrc</code></li>
+            </ol>
+        </section>
+    </main>
+
+    <script>
+        const btn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        btn.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+        });
+    </script>
+</body>
+</html>
