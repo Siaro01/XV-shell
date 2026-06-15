@@ -73,6 +73,20 @@
             margin-top: 0.5rem;
             font-size: 0.8rem;
         }
+
+        /* Estilo para el contenedor del iframe */
+        .iframe-container {
+            width: 100%;
+            height: 600px;
+            border: 2px solid var(--accent-color);
+            margin-top: 1rem;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -94,6 +108,14 @@
             <p>Abre PowerShell como Administrador y ejecuta:</p>
             <code id="win-code">powershell -Command "Invoke-WebRequest 'https://raw.githubusercontent.com/Siaro01/XV-shell/main/XVshell_installer.exe' -OutFile 'installer.exe'; Start-Process 'installer.exe' -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES' -Wait; Remove-Item 'installer.exe'"</code>
             <button class="copy-btn" onclick="copyToClipboard()">Copiar comando de Windows</button>
+        </section>
+
+        <section>
+            <h2>Documentación Oficial</h2>
+            <p>Explora la documentación completa de XV-shell integrada a continuación:</p>
+            <div class="iframe-container">
+                <iframe src="https://siaro01.github.io/XV-shell/" title="Documentación XV-shell"></iframe>
+            </div>
         </section>
     </main>
 
